@@ -1,0 +1,15 @@
+package me.asfor.armorstandeditor.buttons;
+
+import me.asfor.armorstandeditor.sessions.EditorSession;
+import org.bukkit.entity.ArmorStand;
+
+public class ArmsButton implements Button
+{
+    @Override
+    public void execute(EditorSession session)
+    {
+        ArmorStand armorStand = session.getArmorStand();
+
+        armorStand.setArms(! armorStand.hasArms());
+    }
+}
