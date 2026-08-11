@@ -6,10 +6,7 @@ import me.asfor.armorstandeditor.gui.MainEditorGUI;
 import me.asfor.armorstandeditor.ArmorStandEditor;
 import me.asfor.armorstandeditor.gui.PoseGUI;
 import me.asfor.armorstandeditor.gui.RotateGUI;
-import me.asfor.armorstandeditor.handlers.HeadPoseGuiHandler;
-import me.asfor.armorstandeditor.handlers.MainGuiHandler;
-import me.asfor.armorstandeditor.handlers.PoseGuiHandler;
-import me.asfor.armorstandeditor.handlers.RotateGuiHandler;
+import me.asfor.armorstandeditor.handlers.*;
 import me.asfor.armorstandeditor.sessions.EditorGuiType;
 import me.asfor.armorstandeditor.sessions.EditorSession;
 
@@ -28,6 +25,7 @@ public class InventoryListener implements Listener
     private final RotateGuiHandler rotateGuiHandler;
     private final PoseGuiHandler poseGuiHandler;
     private final HeadPoseGuiHandler headPoseGuiHandler;
+    private final BodyPoseGuiHandler bodyPoseGuiHandler;
 
     public InventoryListener(ArmorStandEditor plugin)
     {
@@ -37,6 +35,7 @@ public class InventoryListener implements Listener
         this.rotateGuiHandler = plugin.getRotateGuiHandler();
         this.poseGuiHandler = plugin.getPoseGuiHandler();
         this.headPoseGuiHandler = new HeadPoseGuiHandler(plugin);
+        this.bodyPoseGuiHandler = new BodyPoseGuiHandler(plugin);
     }
 
     @EventHandler
@@ -71,6 +70,9 @@ public class InventoryListener implements Listener
 
             case HEAD_POSE ->
                 headPoseGuiHandler.handle(event, session);
+
+            case BODY_POSE ->
+                bodyPoseGuiHandler.handle(event, session);
         }
     }
 
@@ -100,6 +102,9 @@ public class InventoryListener implements Listener
 
             case HEAD_POSE ->
                 headPoseGuiHandler.handleDrag(event);
+
+            case BODY_POSE ->
+                bodyPoseGuiHandler.handleDrag(event);
         }
     }
 

@@ -5,5 +5,6 @@ public enum EditorGuiType
     MAIN,
     ROTATE,
     POSE,
-    HEAD_POSE
+    HEAD_POSE,
+    BODY_POSE
 }

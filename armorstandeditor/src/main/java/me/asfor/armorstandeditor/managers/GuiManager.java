@@ -1,9 +1,6 @@
 package me.asfor.armorstandeditor.managers;
 
-import me.asfor.armorstandeditor.gui.HeadPoseGUI;
-import me.asfor.armorstandeditor.gui.MainEditorGUI;
-import me.asfor.armorstandeditor.gui.PoseGUI;
-import me.asfor.armorstandeditor.gui.RotateGUI;
+import me.asfor.armorstandeditor.gui.*;
 import me.asfor.armorstandeditor.sessions.EditorGuiType;
 import me.asfor.armorstandeditor.sessions.EditorSession;
 import me.asfor.armorstandeditor.sessions.PosePart;
@@ -57,5 +54,15 @@ public class GuiManager
         session.setInventory(inventory);
 
         session.getPlayer().openInventory(inventory);
+    }
+
+    public static void openBodyPose(EditorSession session)
+    {
+        Inventory inventroy = BodyPoseGUI.createInventory(session);
+
+        session.setCurrentGui(EditorGuiType.BODY_POSE);
+        session.setInventory(inventroy);
+
+        session.getPlayer().openInventory(inventroy);
     }
 }
