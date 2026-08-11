@@ -63,6 +63,8 @@ public class HeadPoseGUI
 
         inventory.setItem(Z_MINUS, new ItemBuilder(Material.ARROW).setName("Tilting head to the Right (Z-)").build());
 
+        inventory.setItem(RESET, new ItemBuilder(Material.ARROW).setName("Reset").build());
+
         refresh(inventory, session);
     }
 
