@@ -4,5 +4,6 @@ public enum EditorGuiType
 {
     MAIN,
     ROTATE,
-    POSE
+    POSE,
+    HEAD_POSE
 }

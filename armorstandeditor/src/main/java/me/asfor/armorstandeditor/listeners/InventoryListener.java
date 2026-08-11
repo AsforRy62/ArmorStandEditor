@@ -1,10 +1,12 @@
 package me.asfor.armorstandeditor.listeners;
 
 import me.asfor.armorstandeditor.buttons.Button;
+import me.asfor.armorstandeditor.gui.HeadPoseGUI;
 import me.asfor.armorstandeditor.gui.MainEditorGUI;
 import me.asfor.armorstandeditor.ArmorStandEditor;
 import me.asfor.armorstandeditor.gui.PoseGUI;
 import me.asfor.armorstandeditor.gui.RotateGUI;
+import me.asfor.armorstandeditor.handlers.HeadPoseGuiHandler;
 import me.asfor.armorstandeditor.handlers.MainGuiHandler;
 import me.asfor.armorstandeditor.handlers.PoseGuiHandler;
 import me.asfor.armorstandeditor.handlers.RotateGuiHandler;
@@ -25,6 +27,7 @@ public class InventoryListener implements Listener
     private final MainGuiHandler mainGuiHandler;
     private final RotateGuiHandler rotateGuiHandler;
     private final PoseGuiHandler poseGuiHandler;
+    private final HeadPoseGuiHandler headPoseGuiHandler;
 
     public InventoryListener(ArmorStandEditor plugin)
     {
@@ -33,17 +36,13 @@ public class InventoryListener implements Listener
         this.mainGuiHandler = plugin.getMainGuiHandler();
         this.rotateGuiHandler = plugin.getRotateGuiHandler();
         this.poseGuiHandler = plugin.getPoseGuiHandler();
+        this.headPoseGuiHandler = new HeadPoseGuiHandler(plugin);
     }
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event)
     {
         String title = event.getView().getTitle();
-
-        if (! title.equals(MainEditorGUI.TITLE) && ! title.equals(RotateGUI.TITLE) && ! title.equals(PoseGUI.TITLE))
-        {
-            return;
-        }
 
         if (event.getClickedInventory() == null)
         {
@@ -59,22 +58,19 @@ public class InventoryListener implements Listener
             return;
         }
 
-        if (title.equals(MainEditorGUI.TITLE))
+        switch(session.getCurrentGui())
         {
-            mainGuiHandler.handle(event, session);
-            return;
-        }
+            case MAIN ->
+                mainGuiHandler.handle(event, session);
 
-        if (title.equals(RotateGUI.TITLE))
-        {
-            rotateGuiHandler.handle(event, session);
-            return;
-        }
+            case ROTATE ->
+                rotateGuiHandler.handle(event, session);
 
-        if (title.equals(PoseGUI.TITLE))
-        {
-            poseGuiHandler.handle(event, session);
-            return;
+            case POSE ->
+                poseGuiHandler.handle(event, session);
+
+            case HEAD_POSE ->
+                headPoseGuiHandler.handle(event, session);
         }
     }
 
@@ -82,11 +78,6 @@ public class InventoryListener implements Listener
     public void onInventoryDrag(InventoryDragEvent event)
     {
         String title = event.getView() .getTitle();
-
-        if (! title.equals(MainEditorGUI.TITLE) && ! title.equals(RotateGUI.TITLE) && ! title.equals(PoseGUI.TITLE))
-        {
-            return;
-        }
 
         Player player = (Player) event.getWhoClicked();
 
@@ -96,22 +87,19 @@ public class InventoryListener implements Listener
             return;
         }
 
-        if (title.equals(MainEditorGUI.TITLE))
+        switch(session.getCurrentGui())
         {
-            mainGuiHandler.handleDrag(event);
-            return;
-        }
+            case MAIN ->
+                mainGuiHandler.handleDrag(event);
 
-        if (title.equals(RotateGUI.TITLE))
-        {
-            rotateGuiHandler.handleDrag(event);
-            return;
-        }
+            case  ROTATE ->
+                rotateGuiHandler.handleDrag(event);
 
-        if (title.equals(PoseGUI.TITLE))
-        {
-            poseGuiHandler.handleDrag(event);
-            return;
+            case POSE ->
+                poseGuiHandler.handleDrag(event);
+
+            case HEAD_POSE ->
+                headPoseGuiHandler.handleDrag(event);
         }
     }
 
@@ -119,11 +107,6 @@ public class InventoryListener implements Listener
     public void onInventoryClose(InventoryCloseEvent event)
     {
         String title = event.getView().getTitle();
-
-        if (! title.equals(MainEditorGUI.TITLE) && ! title.equals(RotateGUI.TITLE) && ! title.equals(PoseGUI.TITLE))
-        {
-            return;
-        }
 
         Player player = (Player) event.getPlayer();
 
@@ -139,7 +122,5 @@ public class InventoryListener implements Listener
             session.setSwitchingGui(false);
             return;
         }
-
-        //plugin.getSessionManager().removeSession(player.getUniqueId());
     }
 }

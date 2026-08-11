@@ -11,7 +11,6 @@ public class EditorSession
     private Inventory inventory;
 
     private EditorGuiType currentGui;
-    private PosePart currentPoseGui;
 
     private int autoRotateTaskId = -1;
     //private float rotationStep = 15.0F;
@@ -78,16 +77,6 @@ public class EditorSession
     public void setCurrentGui(EditorGuiType currentGui)
     {
         this.currentGui = currentGui;
-    }
-
-    public PosePart getCurrentPoseGui()
-    {
-        return currentPoseGui;
-    }
-
-    public void setCurrentPoseGui(PosePart currentPoseGui)
-    {
-        this.currentPoseGui = currentPoseGui;
     }
 
     public boolean isSwitchingGui()

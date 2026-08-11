@@ -4,16 +4,15 @@ import me.asfor.armorstandeditor.ArmorStandEditor;
 import me.asfor.armorstandeditor.buttons.Button;
 import me.asfor.armorstandeditor.gui.HeadPoseGUI;
 import me.asfor.armorstandeditor.gui.RotateGUI;
-import me.asfor.armorstandeditor.sessions.EditorGuiType;
 import me.asfor.armorstandeditor.sessions.EditorSession;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 
-public class PoseGuiHandler
+public class HeadPoseGuiHandler
 {
     private final ArmorStandEditor plugin;
 
-    public PoseGuiHandler(ArmorStandEditor plugin)
+    public HeadPoseGuiHandler(ArmorStandEditor plugin)
     {
         this.plugin = plugin;
     }
@@ -36,6 +35,7 @@ public class PoseGuiHandler
 
         button.execute(session);
 
+        HeadPoseGUI.refresh(event.getView().getTopInventory(), session);
     }
 
     public void handleDrag(InventoryDragEvent event)

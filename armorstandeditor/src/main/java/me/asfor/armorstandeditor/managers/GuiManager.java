@@ -53,7 +53,7 @@ public class GuiManager
     {
         Inventory inventory = HeadPoseGUI.createInventory(session);
 
-        session.setCurrentPoseGui(PosePart.HEAD);
+        session.setCurrentGui(EditorGuiType.HEAD_POSE);
         session.setInventory(inventory);
 
         session.getPlayer().openInventory(inventory);
