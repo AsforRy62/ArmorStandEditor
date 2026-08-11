@@ -37,6 +37,8 @@ public class ButtonManager
         buttons.put(HeadPoseGUI.X_MINUS, new HeadXMinusButton());
         buttons.put(HeadPoseGUI.Y_PLUS, new HeadYPlusButton());
         buttons.put(HeadPoseGUI.Y_MINUS, new HeadYMinusButton());
+        buttons.put(HeadPoseGUI.Z_PLUS, new HeadZPlusButton());
+        buttons.put(HeadPoseGUI.Z_MINUS, new HeadZMinusButton());
     }
 
     public Button getButton(int slot)

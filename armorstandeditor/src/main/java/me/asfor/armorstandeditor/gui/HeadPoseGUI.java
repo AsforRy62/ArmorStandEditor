@@ -59,6 +59,10 @@ public class HeadPoseGUI
 
         inventory.setItem(Y_MINUS, new ItemBuilder(Material.ARROW).setName("Turn Left (Y-)").build());
 
+        inventory.setItem(Z_PLUS, new ItemBuilder(Material.ARROW).setName("Tilting head to the Left (Z+)").build());
+
+        inventory.setItem(Z_MINUS, new ItemBuilder(Material.ARROW).setName("Tilting head to the Right (Z-)").build());
+
         refresh(inventory, session);
     }
 
