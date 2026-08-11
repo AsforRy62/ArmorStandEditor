@@ -14,19 +14,19 @@ public class HeadPoseGUI
     public static final int SIZE = 54;
     public static final String TITLE = "Head Pose Editor";
 
-    public static final int X_PLUS = 10;
-    public static final int X_MINUS = 19;
+    public static final int X_PLUS = 12;
+    public static final int X_MINUS = 14;
 
-    public static final int Y_PLUS = 12;
-    public static final int Y_MINUS = 21;
+    public static final int Y_PLUS = 21;
+    public static final int Y_MINUS = 23;
 
-    public static final int Z_PLUS = 14;
-    public static final int Z_MINUS = 23;
+    public static final int Z_PLUS = 30;
+    public static final int Z_MINUS = 32;
 
     public static final int INFO = 4;
 
-    public static final int RESET = 30;
-    public static final int BACK = 32;
+    public static final int RESET = 48;
+    public static final int BACK = 50;
 
     public static Inventory createInventory(EditorSession session)
     {
@@ -51,7 +51,9 @@ public class HeadPoseGUI
     public static void createButtons(Inventory inventory, EditorSession session)
     {
 
-        inventory.setItem(X_PLUS, new ItemBuilder(Material.ARROW).setName("+X").build());
+        inventory.setItem(X_PLUS, new ItemBuilder(Material.ARROW).setName("+X (bowing)").build());
+
+        inventory.setItem(X_MINUS, new ItemBuilder(Material.ARROW).setName("-X (look up)").build());
 
         refresh(inventory, session);
     }
