@@ -51,9 +51,13 @@ public class HeadPoseGUI
     public static void createButtons(Inventory inventory, EditorSession session)
     {
 
-        inventory.setItem(X_PLUS, new ItemBuilder(Material.ARROW).setName("+X (bowing)").build());
+        inventory.setItem(X_PLUS, new ItemBuilder(Material.ARROW).setName("Bowing (X+)").build());
 
-        inventory.setItem(X_MINUS, new ItemBuilder(Material.ARROW).setName("-X (look up)").build());
+        inventory.setItem(X_MINUS, new ItemBuilder(Material.ARROW).setName("Look up (X-)").build());
+
+        inventory.setItem(Y_PLUS, new ItemBuilder(Material.ARROW).setName("Turn Right (Y+)").build());
+
+        inventory.setItem(Y_MINUS, new ItemBuilder(Material.ARROW).setName("Turn Left (Y-)").build());
 
         refresh(inventory, session);
     }
