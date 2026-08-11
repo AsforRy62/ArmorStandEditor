@@ -24,7 +24,7 @@ public class RotateGUI
 
     public static final int STEP_BUTTON = 22;
     public static final int RESET_BUTTON = 30;
-    public static final int BACK = 32;
+    public static final int BACK_BUTTON = 32;
 
     public static Inventory createInventory(EditorSession session)
     {
@@ -60,7 +60,7 @@ public class RotateGUI
 
         inventory.setItem(RESET_BUTTON, new ItemBuilder(Material.TOTEM_OF_UNDYING).setName("Reset").build());
 
-        inventory.setItem(BACK, new ItemBuilder(Material.BARRIER).setName("§cBack").build());
+        inventory.setItem(BACK_BUTTON, new ItemBuilder(Material.BARRIER).setName("§cBack").build());
 
         refresh(inventory, session);
     }

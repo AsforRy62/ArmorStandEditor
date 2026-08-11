@@ -65,6 +65,8 @@ public class HeadPoseGUI
 
         inventory.setItem(RESET, new ItemBuilder(Material.ARROW).setName("Reset").build());
 
+        inventory.setItem(BACK, new ItemBuilder(Material.ARROW).setName("Back").build());
+
         refresh(inventory, session);
     }
 

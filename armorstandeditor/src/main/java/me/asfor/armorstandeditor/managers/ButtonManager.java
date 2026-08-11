@@ -30,7 +30,7 @@ public class ButtonManager
         buttons.put(RotateGUI.ROTATE_RIGHT, new RotateRightButton());
         buttons.put(RotateGUI.STEP_BUTTON, new RotationStepButton());
         buttons.put(RotateGUI.RESET_BUTTON, new RotateResetButton());
-        buttons.put(RotateGUI.BACK,  new BackButton());
+        buttons.put(RotateGUI.BACK_BUTTON,  new RotateBackButton());
 
         buttons.put(PoseGUI.HEAD, new HeadPoseButton());
         buttons.put(HeadPoseGUI.X_PLUS, new HeadXPlusButton());
@@ -40,6 +40,7 @@ public class ButtonManager
         buttons.put(HeadPoseGUI.Z_PLUS, new HeadZPlusButton());
         buttons.put(HeadPoseGUI.Z_MINUS, new HeadZMinusButton());
         buttons.put(HeadPoseGUI.RESET, new HeadResetButton());
+        buttons.put(HeadPoseGUI.BACK,  new HeadBackButton());
     }
 
     public Button getButton(int slot)
