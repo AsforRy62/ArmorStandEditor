@@ -1,6 +1,12 @@
 package me.asfor.armorstandeditor.managers;
 
 import me.asfor.armorstandeditor.buttons.*;
+import me.asfor.armorstandeditor.buttons.main.*;
+import me.asfor.armorstandeditor.buttons.pose.BodyPoseButton;
+import me.asfor.armorstandeditor.buttons.pose.HeadPoseButton;
+import me.asfor.armorstandeditor.buttons.pose.body.BodyXPlusButton;
+import me.asfor.armorstandeditor.buttons.pose.head.*;
+import me.asfor.armorstandeditor.buttons.rotate.*;
 import me.asfor.armorstandeditor.gui.*;
 
 import java.util.HashMap;
