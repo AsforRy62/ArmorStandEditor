@@ -51,6 +51,8 @@ public class BodyPoseGUI
     {
         inventory.setItem(X_PLUS, new ItemBuilder(Material.ARROW).setName("(X+)").build());
 
+        inventory.setItem(X_MINUS, new ItemBuilder(Material.ARROW).setName("(X-)").build());
+
         refresh(inventory, session);
     }
 
