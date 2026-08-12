@@ -1,10 +1,7 @@
 package me.asfor.armorstandeditor.managers;
 
 import me.asfor.armorstandeditor.buttons.*;
-import me.asfor.armorstandeditor.gui.HeadPoseGUI;
-import me.asfor.armorstandeditor.gui.MainEditorGUI;
-import me.asfor.armorstandeditor.gui.PoseGUI;
-import me.asfor.armorstandeditor.gui.RotateGUI;
+import me.asfor.armorstandeditor.gui.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +40,7 @@ public class ButtonManager
         buttons.put(HeadPoseGUI.BACK,  new HeadBackButton());
 
         buttons.put(PoseGUI.BODY, new BodyPoseButton());
+        buttons.put(BodyPoseGUI.X_PLUS, new BodyXPlusButton());
     }
 
     public Button getButton(int slot)

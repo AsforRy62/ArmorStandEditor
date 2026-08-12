@@ -1,10 +1,12 @@
 package me.asfor.armorstandeditor.gui;
 
 import me.asfor.armorstandeditor.sessions.EditorSession;
+import me.asfor.armorstandeditor.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.EulerAngle;
 
 public class BodyPoseGUI
 {
@@ -47,13 +49,23 @@ public class BodyPoseGUI
 
     public static void createButtons(Inventory inventory, EditorSession session)
     {
-
+        inventory.setItem(X_PLUS, new ItemBuilder(Material.ARROW).setName("(X+)").build());
 
         refresh(inventory, session);
     }
 
     public static void refresh(Inventory inventory, EditorSession session)
     {
+        //弧度(Radians)
+        EulerAngle pose = session.getArmorStand().getBodyPose();
 
+        //轉成角度
+        inventory.setItem(INFO, new ItemBuilder(Material.OAK_FENCE)
+                .setName("Body Pose")
+                .setLore("",
+                        "X: " + Math.round(Math.toDegrees(pose.getX())) + "°",
+                        "Y: " + Math.round(Math.toDegrees(pose.getY())) + "°",
+                        "Z: " + Math.round(Math.toDegrees(pose.getZ())) + "°")
+                .build());
     }
 }
