@@ -8,6 +8,7 @@ import me.asfor.armorstandeditor.buttons.pose.body.BodyXPlusButton;
 import me.asfor.armorstandeditor.buttons.pose.head.*;
 import me.asfor.armorstandeditor.buttons.rotate.*;
 import me.asfor.armorstandeditor.gui.*;
+import me.asfor.armorstandeditor.sessions.PosePart;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +16,8 @@ import java.util.Map;
 public class ButtonManager
 {
     private final Map<Integer, Button> buttons = new HashMap<>();
+
+    private final Map<PosePart, Map<Integer, Button>> poseButtons = new HashMap<>();
 
     public  ButtonManager()
     {
@@ -35,22 +38,40 @@ public class ButtonManager
         buttons.put(RotateGUI.RESET_BUTTON, new RotateResetButton());
         buttons.put(RotateGUI.BACK_BUTTON,  new RotateBackButton());
 
+        Map<Integer, Button> headButtons = new HashMap<>();
+
         buttons.put(PoseGUI.HEAD, new HeadPoseButton());
-        buttons.put(HeadPoseGUI.X_PLUS, new HeadXPlusButton());
-        buttons.put(HeadPoseGUI.X_MINUS, new HeadXMinusButton());
-        buttons.put(HeadPoseGUI.Y_PLUS, new HeadYPlusButton());
-        buttons.put(HeadPoseGUI.Y_MINUS, new HeadYMinusButton());
-        buttons.put(HeadPoseGUI.Z_PLUS, new HeadZPlusButton());
-        buttons.put(HeadPoseGUI.Z_MINUS, new HeadZMinusButton());
-        buttons.put(HeadPoseGUI.RESET, new HeadResetButton());
-        buttons.put(HeadPoseGUI.BACK,  new HeadBackButton());
+        poseButtons.put(PosePart.HEAD, headButtons);
+        headButtons.put(HeadPoseGUI.X_PLUS, new HeadXPlusButton());
+        headButtons.put(HeadPoseGUI.X_MINUS, new HeadXMinusButton());
+        headButtons.put(HeadPoseGUI.Y_PLUS, new HeadYPlusButton());
+        headButtons.put(HeadPoseGUI.Y_MINUS, new HeadYMinusButton());
+        headButtons.put(HeadPoseGUI.Z_PLUS, new HeadZPlusButton());
+        headButtons.put(HeadPoseGUI.Z_MINUS, new HeadZMinusButton());
+        headButtons.put(HeadPoseGUI.RESET, new HeadResetButton());
+        headButtons.put(HeadPoseGUI.BACK,  new HeadBackButton());
+
+        Map<Integer, Button> bodyButtons = new HashMap<>();
 
         buttons.put(PoseGUI.BODY, new BodyPoseButton());
-        buttons.put(BodyPoseGUI.X_PLUS, new BodyXPlusButton());
+        poseButtons.put(PosePart.BODY, bodyButtons);
+        bodyButtons.put(BodyPoseGUI.X_PLUS, new BodyXPlusButton());
     }
 
     public Button getButton(int slot)
     {
+        return buttons.get(slot);
+    }
+
+    public Button getPoseButton(PosePart part, int slot)
+    {
+        Map<Integer, Button> buttons = poseButtons.get(part);
+
+        if (buttons == null)
+        {
+            return null;
+        }
+
         return buttons.get(slot);
     }
 }

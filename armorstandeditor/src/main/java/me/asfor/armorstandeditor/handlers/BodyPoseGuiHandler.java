@@ -5,6 +5,7 @@ import me.asfor.armorstandeditor.buttons.Button;
 import me.asfor.armorstandeditor.gui.BodyPoseGUI;
 import me.asfor.armorstandeditor.gui.HeadPoseGUI;
 import me.asfor.armorstandeditor.sessions.EditorSession;
+import me.asfor.armorstandeditor.sessions.PosePart;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 
@@ -26,7 +27,7 @@ public class BodyPoseGuiHandler
 
         event.setCancelled(true);
 
-        Button button = plugin.getButtonManager().getButton(event.getRawSlot());
+        Button button = plugin.getButtonManager().getPoseButton(PosePart.BODY, event.getRawSlot());
 
         if (button == null)
         {

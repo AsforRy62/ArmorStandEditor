@@ -18,7 +18,7 @@ public class EditorSession
     private boolean switchingGui = false;
 
     //Pose
-    private PosePart posePart = PosePart.HEAD;
+    private PosePart posePart;
 
     public EditorSession(Player player, ArmorStand armorStand)
     {
