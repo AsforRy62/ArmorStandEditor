@@ -53,6 +53,18 @@ public class BodyPoseGUI
 
         inventory.setItem(X_MINUS, new ItemBuilder(Material.ARROW).setName("(X-)").build());
 
+        inventory.setItem(Y_PLUS, new ItemBuilder(Material.ARROW).setName("(Y+)").build());
+
+        inventory.setItem(Y_MINUS, new ItemBuilder(Material.ARROW).setName("(Y-)").build());
+
+        inventory.setItem(Z_PLUS, new ItemBuilder(Material.ARROW).setName("(Z+)").build());
+
+        inventory.setItem(Z_MINUS, new ItemBuilder(Material.ARROW).setName("(Z-)").build());
+
+        inventory.setItem(RESET, new ItemBuilder(Material.ARROW).setName("Reset").build());
+
+        inventory.setItem(BACK, new ItemBuilder(Material.ARROW).setName("Back").build());
+
         refresh(inventory, session);
     }
 

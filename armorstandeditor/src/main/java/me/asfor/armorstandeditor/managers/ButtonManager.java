@@ -4,8 +4,7 @@ import me.asfor.armorstandeditor.buttons.*;
 import me.asfor.armorstandeditor.buttons.main.*;
 import me.asfor.armorstandeditor.buttons.pose.BodyPoseButton;
 import me.asfor.armorstandeditor.buttons.pose.HeadPoseButton;
-import me.asfor.armorstandeditor.buttons.pose.body.BodyXMinusButton;
-import me.asfor.armorstandeditor.buttons.pose.body.BodyXPlusButton;
+import me.asfor.armorstandeditor.buttons.pose.body.*;
 import me.asfor.armorstandeditor.buttons.pose.head.*;
 import me.asfor.armorstandeditor.buttons.rotate.*;
 import me.asfor.armorstandeditor.gui.*;
@@ -58,6 +57,10 @@ public class ButtonManager
         poseButtons.put(PosePart.BODY, bodyButtons);
         bodyButtons.put(BodyPoseGUI.X_PLUS, new BodyXPlusButton());
         bodyButtons.put(BodyPoseGUI.X_MINUS, new BodyXMinusButton());
+        bodyButtons.put(BodyPoseGUI.Y_PLUS, new BodyYPlusButton());
+        bodyButtons.put(BodyPoseGUI.Y_MINUS, new BodyYMinusButton());
+        bodyButtons.put(BodyPoseGUI.Z_PLUS, new BodyZPlusButton());
+        bodyButtons.put(BodyPoseGUI.Z_MINUS, new BodyZMinusButton());
     }
 
     public Button getButton(int slot)
