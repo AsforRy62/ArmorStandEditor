@@ -37,7 +37,7 @@ public class MainGuiHandler
 
         int slot = event.getRawSlot();
 
-        Button button = plugin.getButtonManager().getButton(slot);
+        Button button = plugin.getButtonManager().getMainButton(slot);
 
         if (button != null)
         {

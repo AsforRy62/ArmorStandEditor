@@ -25,7 +25,7 @@ public class RotateGuiHandler
 
         event.setCancelled(true);
 
-        Button button = plugin.getButtonManager().getButton(event.getRawSlot());
+        Button button = plugin.getButtonManager().getRotateButton(event.getRawSlot());
 
         if (button == null)
         {

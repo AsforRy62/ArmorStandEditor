@@ -27,7 +27,7 @@ public class PoseGuiHandler
 
         event.setCancelled(true);
 
-        Button button = plugin.getButtonManager().getButton(event.getRawSlot());
+        Button button = plugin.getButtonManager().getPoseButton(event.getRawSlot());
 
         if (button == null)
         {

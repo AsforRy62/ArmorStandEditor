@@ -15,33 +15,39 @@ import java.util.Map;
 
 public class ButtonManager
 {
-    private final Map<Integer, Button> buttons = new HashMap<>();
+    private final Map<Integer, Button> mainButtons = new HashMap<>();
 
-    private final Map<PosePart, Map<Integer, Button>> poseButtons = new HashMap<>();
+    private final Map<Integer, Button> rotateButtons = new HashMap<>();
+
+    private final Map<Integer, Button> poseButtons = new HashMap<>();
+
+    private final Map<PosePart, Map<Integer, Button>> posePartButtons = new HashMap<>();
 
     public  ButtonManager()
     {
-        buttons.put(MainEditorGUI.SMALL_BUTTON, new SmallButton());
-        buttons.put(MainEditorGUI.ARMS_BUTTON, new ArmsButton());
-        buttons.put(MainEditorGUI.BASE_BUTTON, new BasePlateButton());
-        buttons.put(MainEditorGUI.MARKER_BUTTON, new MarkerButton());
-        buttons.put(MainEditorGUI.POSE_BUTTON, new PoseButton());
-        buttons.put(MainEditorGUI.ROTATE_BUTTON, new RotateButton());
-        buttons.put(MainEditorGUI.NAME_BUTTON, new NameButton());
-        buttons.put(MainEditorGUI.GRAVITY_BUTTON, new GravityButton());
-        buttons.put(MainEditorGUI.VISIBLE_BUTTON, new VisibleButton());
+        mainButtons.put(MainEditorGUI.SMALL_BUTTON, new SmallButton());
+        mainButtons.put(MainEditorGUI.ARMS_BUTTON, new ArmsButton());
+        mainButtons.put(MainEditorGUI.BASE_BUTTON, new BasePlateButton());
+        mainButtons.put(MainEditorGUI.MARKER_BUTTON, new MarkerButton());
+        mainButtons.put(MainEditorGUI.POSE_BUTTON, new PoseButton());
+        mainButtons.put(MainEditorGUI.ROTATE_BUTTON, new RotateButton());
+        mainButtons.put(MainEditorGUI.NAME_BUTTON, new NameButton());
+        mainButtons.put(MainEditorGUI.GRAVITY_BUTTON, new GravityButton());
+        mainButtons.put(MainEditorGUI.VISIBLE_BUTTON, new VisibleButton());
 
-        buttons.put(RotateGUI.AUTO_ROTATE_BUTTON, new AutoRotateButton());
-        buttons.put(RotateGUI.ROTATE_LEFT, new RotateLeftButton());
-        buttons.put(RotateGUI.ROTATE_RIGHT, new RotateRightButton());
-        buttons.put(RotateGUI.STEP_BUTTON, new RotationStepButton());
-        buttons.put(RotateGUI.RESET_BUTTON, new RotateResetButton());
-        buttons.put(RotateGUI.BACK_BUTTON,  new RotateBackButton());
+        rotateButtons.put(RotateGUI.AUTO_ROTATE_BUTTON, new AutoRotateButton());
+        rotateButtons.put(RotateGUI.ROTATE_LEFT, new RotateLeftButton());
+        rotateButtons.put(RotateGUI.ROTATE_RIGHT, new RotateRightButton());
+        rotateButtons.put(RotateGUI.STEP_BUTTON, new RotationStepButton());
+        rotateButtons.put(RotateGUI.RESET_BUTTON, new RotateResetButton());
+        rotateButtons.put(RotateGUI.BACK_BUTTON,  new RotateBackButton());
+
+        poseButtons.put(PoseGUI.HEAD, new HeadPoseButton());
+        poseButtons.put(PoseGUI.BODY, new BodyPoseButton());
 
         Map<Integer, Button> headButtons = new HashMap<>();
 
-        buttons.put(PoseGUI.HEAD, new HeadPoseButton());
-        poseButtons.put(PosePart.HEAD, headButtons);
+        posePartButtons.put(PosePart.HEAD, headButtons);
         headButtons.put(HeadPoseGUI.X_PLUS, new HeadXPlusButton());
         headButtons.put(HeadPoseGUI.X_MINUS, new HeadXMinusButton());
         headButtons.put(HeadPoseGUI.Y_PLUS, new HeadYPlusButton());
@@ -53,24 +59,35 @@ public class ButtonManager
 
         Map<Integer, Button> bodyButtons = new HashMap<>();
 
-        buttons.put(PoseGUI.BODY, new BodyPoseButton());
-        poseButtons.put(PosePart.BODY, bodyButtons);
+        posePartButtons.put(PosePart.BODY, bodyButtons);
         bodyButtons.put(BodyPoseGUI.X_PLUS, new BodyXPlusButton());
         bodyButtons.put(BodyPoseGUI.X_MINUS, new BodyXMinusButton());
         bodyButtons.put(BodyPoseGUI.Y_PLUS, new BodyYPlusButton());
         bodyButtons.put(BodyPoseGUI.Y_MINUS, new BodyYMinusButton());
         bodyButtons.put(BodyPoseGUI.Z_PLUS, new BodyZPlusButton());
         bodyButtons.put(BodyPoseGUI.Z_MINUS, new BodyZMinusButton());
+        bodyButtons.put(BodyPoseGUI.RESET, new BodyResetButton());
+        bodyButtons.put(BodyPoseGUI.BACK,  new BodyBackButton());
     }
 
-    public Button getButton(int slot)
+    public Button getMainButton(int slot)
     {
-        return buttons.get(slot);
+        return mainButtons.get(slot);
     }
 
-    public Button getPoseButton(PosePart part, int slot)
+    public Button getRotateButton(int slot)
     {
-        Map<Integer, Button> buttons = poseButtons.get(part);
+        return rotateButtons.get(slot);
+    }
+
+    public Button getPoseButton(int slot)
+    {
+        return poseButtons.get(slot);
+    }
+
+    public Button getPosePartButton(PosePart part, int slot)
+    {
+        Map<Integer, Button> buttons = posePartButtons.get(part);
 
         if (buttons == null)
         {
