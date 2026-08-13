@@ -1,8 +1,10 @@
 package me.asfor.armorstandeditor.sessions;
 
+import me.asfor.armorstandeditor.gui.LeftArmPoseGUI;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.util.EulerAngle;
 
 public class EditorSession
 {

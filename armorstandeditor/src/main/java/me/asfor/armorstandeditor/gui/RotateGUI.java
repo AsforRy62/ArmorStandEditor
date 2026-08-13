@@ -1,15 +1,13 @@
 package me.asfor.armorstandeditor.gui;
 
 import me.asfor.armorstandeditor.ArmorStandEditor;
-import me.asfor.armorstandeditor.rotation.RotationData;
+import me.asfor.armorstandeditor.data.RotationData;
 import me.asfor.armorstandeditor.sessions.EditorSession;
 import me.asfor.armorstandeditor.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-
-import static org.bukkit.Location.normalizeYaw;
 
 public class RotateGUI
 {

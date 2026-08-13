@@ -1,4 +1,4 @@
-package me.asfor.armorstandeditor.rotation;
+package me.asfor.armorstandeditor.data;
 
 import org.bukkit.entity.ArmorStand;
 

@@ -3,7 +3,7 @@ package me.asfor.armorstandeditor.buttons.rotate;
 import me.asfor.armorstandeditor.ArmorStandEditor;
 import me.asfor.armorstandeditor.buttons.Button;
 import me.asfor.armorstandeditor.managers.RotationManager;
-import me.asfor.armorstandeditor.rotation.RotationData;
+import me.asfor.armorstandeditor.data.RotationData;
 import me.asfor.armorstandeditor.sessions.EditorSession;
 
 public class RotationStepButton implements Button

@@ -6,6 +6,7 @@ import me.asfor.armorstandeditor.handlers.RotateGuiHandler;
 import me.asfor.armorstandeditor.listeners.ArmorStandListener;
 import me.asfor.armorstandeditor.listeners.InventoryListener;
 import me.asfor.armorstandeditor.managers.ButtonManager;
+import me.asfor.armorstandeditor.managers.PoseManager;
 import me.asfor.armorstandeditor.managers.RotationManager;
 import me.asfor.armorstandeditor.managers.SessionManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,6 +16,7 @@ public final class ArmorStandEditor extends JavaPlugin
     private SessionManager sessionManager;
     private ButtonManager buttonManager;
     private RotationManager rotationManager;
+    private PoseManager poseManager;
 
     private MainGuiHandler mainGuiHandler;
     private RotateGuiHandler rotateGuiHandler;
@@ -28,6 +30,8 @@ public final class ArmorStandEditor extends JavaPlugin
         buttonManager = new ButtonManager();
 
         rotationManager = new RotationManager(this);
+
+        poseManager = new PoseManager(this);
 
         mainGuiHandler = new MainGuiHandler(this);
 
@@ -57,6 +61,8 @@ public final class ArmorStandEditor extends JavaPlugin
     public ButtonManager getButtonManager() {return buttonManager;}
 
     public RotationManager getRotationManager() {return rotationManager;}
+
+    public PoseManager getPoseManager() {return poseManager;}
 
     public MainGuiHandler getMainGuiHandler() {return mainGuiHandler;}
 

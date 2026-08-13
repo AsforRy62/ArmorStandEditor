@@ -4,8 +4,10 @@ import me.asfor.armorstandeditor.buttons.*;
 import me.asfor.armorstandeditor.buttons.main.*;
 import me.asfor.armorstandeditor.buttons.pose.BodyPoseButton;
 import me.asfor.armorstandeditor.buttons.pose.HeadPoseButton;
+import me.asfor.armorstandeditor.buttons.pose.LeftArmPoseButton;
 import me.asfor.armorstandeditor.buttons.pose.body.*;
 import me.asfor.armorstandeditor.buttons.pose.head.*;
+import me.asfor.armorstandeditor.buttons.pose.leftarm.*;
 import me.asfor.armorstandeditor.buttons.rotate.*;
 import me.asfor.armorstandeditor.gui.*;
 import me.asfor.armorstandeditor.sessions.PosePart;
@@ -44,6 +46,7 @@ public class ButtonManager
 
         poseButtons.put(PoseGUI.HEAD, new HeadPoseButton());
         poseButtons.put(PoseGUI.BODY, new BodyPoseButton());
+        poseButtons.put(PoseGUI.LEFT_ARM, new LeftArmPoseButton());
 
         Map<Integer, Button> headButtons = new HashMap<>();
 
@@ -68,6 +71,18 @@ public class ButtonManager
         bodyButtons.put(BodyPoseGUI.Z_MINUS, new BodyZMinusButton());
         bodyButtons.put(BodyPoseGUI.RESET, new BodyResetButton());
         bodyButtons.put(BodyPoseGUI.BACK,  new BodyBackButton());
+
+        Map<Integer, Button> leftArmButtons = new HashMap<>();
+
+        posePartButtons.put(PosePart.LEFT_ARM, leftArmButtons);
+        leftArmButtons.put(LeftArmPoseGUI.X_PLUS, new LeftArmXPlusButton());
+        leftArmButtons.put(LeftArmPoseGUI.X_MINUS, new LeftArmXMinusButton());
+        leftArmButtons.put(LeftArmPoseGUI.Y_PLUS, new LeftArmYPlusButton());
+        leftArmButtons.put(LeftArmPoseGUI.Y_MINUS, new LeftArmYMinusButton());
+        leftArmButtons.put(LeftArmPoseGUI.Z_PLUS, new LeftArmZPlusButton());
+        leftArmButtons.put(LeftArmPoseGUI.Z_MINUS, new LeftArmZMinusButton());
+        leftArmButtons.put(LeftArmPoseGUI.RESET, new LeftArmResetButton());
+        leftArmButtons.put(LeftArmPoseGUI.BACK,  new LeftArmBackButton());
     }
 
     public Button getMainButton(int slot)

@@ -26,6 +26,7 @@ public class InventoryListener implements Listener
     private final PoseGuiHandler poseGuiHandler;
     private final HeadPoseGuiHandler headPoseGuiHandler;
     private final BodyPoseGuiHandler bodyPoseGuiHandler;
+    private final LeftArmPoseGuiHandler leftArmPoseGuiHandler;
 
     public InventoryListener(ArmorStandEditor plugin)
     {
@@ -36,6 +37,7 @@ public class InventoryListener implements Listener
         this.poseGuiHandler = plugin.getPoseGuiHandler();
         this.headPoseGuiHandler = new HeadPoseGuiHandler(plugin);
         this.bodyPoseGuiHandler = new BodyPoseGuiHandler(plugin);
+        this.leftArmPoseGuiHandler = new LeftArmPoseGuiHandler(plugin);
     }
 
     @EventHandler
@@ -73,6 +75,9 @@ public class InventoryListener implements Listener
 
             case BODY_POSE ->
                 bodyPoseGuiHandler.handle(event, session);
+
+            case LEFTARM_POSE ->
+                leftArmPoseGuiHandler.handle(event, session);
         }
     }
 
@@ -105,6 +110,9 @@ public class InventoryListener implements Listener
 
             case BODY_POSE ->
                 bodyPoseGuiHandler.handleDrag(event);
+
+            case LEFTARM_POSE ->
+                leftArmPoseGuiHandler.handleDrag(event);
         }
     }
 
