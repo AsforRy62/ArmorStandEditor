@@ -2,14 +2,13 @@ package me.asfor.armorstandeditor.managers;
 
 import me.asfor.armorstandeditor.buttons.*;
 import me.asfor.armorstandeditor.buttons.main.*;
-import me.asfor.armorstandeditor.buttons.pose.BodyPoseButton;
-import me.asfor.armorstandeditor.buttons.pose.HeadPoseButton;
-import me.asfor.armorstandeditor.buttons.pose.LeftArmPoseButton;
-import me.asfor.armorstandeditor.buttons.pose.RightArmPoseButton;
+import me.asfor.armorstandeditor.buttons.pose.*;
 import me.asfor.armorstandeditor.buttons.pose.body.*;
 import me.asfor.armorstandeditor.buttons.pose.head.*;
 import me.asfor.armorstandeditor.buttons.pose.leftarm.*;
+import me.asfor.armorstandeditor.buttons.pose.leftleg.*;
 import me.asfor.armorstandeditor.buttons.pose.rightarm.*;
+import me.asfor.armorstandeditor.buttons.pose.rightleg.*;
 import me.asfor.armorstandeditor.buttons.rotate.*;
 import me.asfor.armorstandeditor.gui.*;
 import me.asfor.armorstandeditor.sessions.PosePart;
@@ -50,6 +49,9 @@ public class ButtonManager
         poseButtons.put(PoseGUI.BODY, new BodyPoseButton());
         poseButtons.put(PoseGUI.LEFT_ARM, new LeftArmPoseButton());
         poseButtons.put(PoseGUI.RIGHT_ARM, new RightArmPoseButton());
+        poseButtons.put(PoseGUI.LEFT_LEG, new LeftLegPoseButton());
+        poseButtons.put(PoseGUI.RIGHT_LEG, new RightLegPoseButton());
+        poseButtons.put(PoseGUI.BACK, new BackPoseButton());
 
         Map<Integer, Button> headButtons = new HashMap<>();
 
@@ -98,6 +100,30 @@ public class ButtonManager
         rightArmButtons.put(RightArmPoseGUI.Z_MINUS, new RightArmZMinusButton());
         rightArmButtons.put(RightArmPoseGUI.RESET, new RightArmResetButton());
         rightArmButtons.put(RightArmPoseGUI.BACK,  new RightArmBackButton());
+
+        Map<Integer, Button> leftLegButtons = new HashMap<>();
+
+        posePartButtons.put(PosePart.LEFT_LEG, leftLegButtons);
+        leftLegButtons.put(LeftLegPoseGUI.X_PLUS, new LeftLegXPlusButton());
+        leftLegButtons.put(LeftLegPoseGUI.X_MINUS, new LeftLegXMinusButton());
+        leftLegButtons.put(LeftLegPoseGUI.Y_PLUS, new LeftLegYPlusButton());
+        leftLegButtons.put(LeftLegPoseGUI.Y_MINUS, new LeftLegYMinusButton());
+        leftLegButtons.put(LeftLegPoseGUI.Z_PLUS, new LeftLegZPlusButton());
+        leftLegButtons.put(LeftLegPoseGUI.Z_MINUS, new LeftLegZMinusButton());
+        leftLegButtons.put(LeftLegPoseGUI.RESET, new LeftLegResetButton());
+        leftLegButtons.put(LeftLegPoseGUI.BACK, new LeftLegBackButton());
+
+        Map<Integer, Button> rightLegButtons = new HashMap<>();
+
+        posePartButtons.put(PosePart.RIGHT_LEG, rightLegButtons);
+        rightLegButtons.put(RightLegPoseGUI.X_PLUS, new RightLegXPlusButton());
+        rightLegButtons.put(RightLegPoseGUI.X_MINUS, new RightLegXMinusButton());
+        rightLegButtons.put(RightLegPoseGUI.Y_PLUS, new RightLegYPlusButton());
+        rightLegButtons.put(RightLegPoseGUI.Y_MINUS, new RightLegYMinusButton());
+        rightLegButtons.put(RightLegPoseGUI.Z_PLUS, new RightLegZPlusButton());
+        rightLegButtons.put(RightLegPoseGUI.Z_MINUS, new RightLegZMinusButton());
+        rightLegButtons.put(RightLegPoseGUI.RESET, new RightLegResetButton());
+        rightLegButtons.put(RightLegPoseGUI.BACK, new RightLegBackButton());
     }
 
     public Button getMainButton(int slot)

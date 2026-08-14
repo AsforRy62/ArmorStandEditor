@@ -85,4 +85,24 @@ public class GuiManager
 
         session.getPlayer().openInventory(inventory);
     }
+
+    public static void openLeftLegPose(EditorSession session)
+    {
+        Inventory inventory = LeftLegPoseGUI.createInventory(session);
+
+        session.setCurrentGui(EditorGuiType.LEFTLEG_POSE);
+        session.setInventory(inventory);
+
+        session.getPlayer().openInventory(inventory);
+    }
+
+    public static void openRightLegPose(EditorSession session)
+    {
+        Inventory inventory = RightLegPoseGUI.createInventory(session);
+
+        session.setCurrentGui(EditorGuiType.RIGHTLEG_POSE);
+        session.setInventory(inventory);
+
+        session.getPlayer().openInventory(inventory);
+    }
 }

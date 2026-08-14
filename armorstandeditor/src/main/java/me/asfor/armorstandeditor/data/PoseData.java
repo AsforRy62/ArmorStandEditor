@@ -111,6 +111,16 @@ public class PoseData
         armorStand.setLeftLegPose(pose);
     }
 
+    public EulerAngle getDefaultLeftLegPose()
+    {
+        return new EulerAngle(Math.toRadians(-1), 0, Math.toRadians(-1));
+    }
+
+    public void resetLeftLegPose()
+    {
+        setLeftLegPose(getDefaultLeftLegPose());
+    }
+
     //right Leg
     public EulerAngle getRightLegPose()
     {
@@ -121,5 +131,15 @@ public class PoseData
     {
         this.rightLegPose = pose;
         armorStand.setRightLegPose(pose);
+    }
+
+    public EulerAngle getDefaultRightLegPose()
+    {
+        return new EulerAngle(Math.toRadians(1), 0, Math.toRadians(1));
+    }
+
+    public void resetRightLegPose()
+    {
+        setRightLegPose(getDefaultRightLegPose());
     }
 }

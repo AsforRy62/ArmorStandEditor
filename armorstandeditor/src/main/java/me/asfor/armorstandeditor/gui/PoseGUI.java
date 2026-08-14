@@ -14,12 +14,12 @@ public class PoseGUI
 
     public static final int HEAD = 4;
     public static final int BODY = 22;
-    public static final int LEFT_ARM = 11;
-    public static final int RIGHT_ARM = 15;
-    public static final int LEFT_LEG = 29;
-    public static final int RIGHT_LEG = 33;
+    public static final int LEFT_ARM = 12;
+    public static final int RIGHT_ARM = 14;
+    public static final int LEFT_LEG = 30;
+    public static final int RIGHT_LEG = 32;
 
-    public static final int BACK = 51;
+    public static final int BACK = 49;
 
     public static Inventory createInventory(EditorSession session)
     {
@@ -50,5 +50,11 @@ public class PoseGUI
         inventory.setItem(LEFT_ARM, new ItemBuilder(Material.STICK).setName("Left Arm Pose").build());
 
         inventory.setItem(RIGHT_ARM, new ItemBuilder(Material.STICK).setName("Right Arm Pose").build());
+
+        inventory.setItem(LEFT_LEG, new ItemBuilder(Material.STICK).setName("Left Leg Pose").build());
+
+        inventory.setItem(RIGHT_LEG, new ItemBuilder(Material.STICK).setName("Right Leg Pose").build());
+
+        inventory.setItem(BACK, new ItemBuilder(Material.BARRIER).setName("Back").build());
     }
 }
