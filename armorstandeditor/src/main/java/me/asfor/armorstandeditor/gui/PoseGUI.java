@@ -43,18 +43,18 @@ public class PoseGUI
 
     public static void createButtons(Inventory inventory, EditorSession session)
     {
-        inventory.setItem(HEAD, new ItemBuilder(Material.PLAYER_HEAD).setName("Head Pose").build());
+        inventory.setItem(HEAD, new ItemBuilder(Material.PLAYER_HEAD).setName("§dHead Pose").build());
 
-        inventory.setItem(BODY, new ItemBuilder(Material.OAK_FENCE).setName("Body Pose").build());
+        inventory.setItem(BODY, new ItemBuilder(Material.OAK_FENCE).setName("§6Body Pose").build());
 
-        inventory.setItem(LEFT_ARM, new ItemBuilder(Material.STICK).setName("Left Arm Pose").build());
+        inventory.setItem(LEFT_ARM, new ItemBuilder(Material.STICK).setName("§eLeft Arm Pose").build());
 
-        inventory.setItem(RIGHT_ARM, new ItemBuilder(Material.STICK).setName("Right Arm Pose").build());
+        inventory.setItem(RIGHT_ARM, new ItemBuilder(Material.STICK).setName("§aRight Arm Pose").build());
 
-        inventory.setItem(LEFT_LEG, new ItemBuilder(Material.STICK).setName("Left Leg Pose").build());
+        inventory.setItem(LEFT_LEG, new ItemBuilder(Material.STICK).setName("§9Left Leg Pose").build());
 
-        inventory.setItem(RIGHT_LEG, new ItemBuilder(Material.STICK).setName("Right Leg Pose").build());
+        inventory.setItem(RIGHT_LEG, new ItemBuilder(Material.STICK).setName("§5Right Leg Pose").build());
 
-        inventory.setItem(BACK, new ItemBuilder(Material.BARRIER).setName("Back").build());
+        inventory.setItem(BACK, new ItemBuilder(Material.BARRIER).setName("§cBack").build());
     }
 }
