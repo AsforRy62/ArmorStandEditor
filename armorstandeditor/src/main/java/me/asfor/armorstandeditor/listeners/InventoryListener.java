@@ -1,21 +1,13 @@
 package me.asfor.armorstandeditor.listeners;
 
-import me.asfor.armorstandeditor.buttons.Button;
-import me.asfor.armorstandeditor.gui.HeadPoseGUI;
-import me.asfor.armorstandeditor.gui.MainEditorGUI;
 import me.asfor.armorstandeditor.ArmorStandEditor;
-import me.asfor.armorstandeditor.gui.PoseGUI;
-import me.asfor.armorstandeditor.gui.RotateGUI;
 import me.asfor.armorstandeditor.handlers.*;
-import me.asfor.armorstandeditor.sessions.EditorGuiType;
 import me.asfor.armorstandeditor.sessions.EditorSession;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.inventory.ItemStack;
 
 public class InventoryListener implements Listener
 {
@@ -49,8 +41,6 @@ public class InventoryListener implements Listener
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event)
     {
-        String title = event.getView().getTitle();
-
         if (event.getClickedInventory() == null)
         {
             return;
@@ -99,8 +89,6 @@ public class InventoryListener implements Listener
     @EventHandler
     public void onInventoryDrag(InventoryDragEvent event)
     {
-        String title = event.getView() .getTitle();
-
         Player player = (Player) event.getWhoClicked();
 
         EditorSession session = plugin.getSessionManager().getSession(player.getUniqueId());
@@ -143,8 +131,6 @@ public class InventoryListener implements Listener
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event)
     {
-        String title = event.getView().getTitle();
-
         Player player = (Player) event.getPlayer();
 
         EditorSession session = plugin.getSessionManager().getSession(player.getUniqueId());
