@@ -7,5 +7,6 @@ public enum EditorGuiType
     POSE,
     HEAD_POSE,
     BODY_POSE,
-    LEFTARM_POSE
+    LEFTARM_POSE,
+    RIGHTARM_POSE
 }

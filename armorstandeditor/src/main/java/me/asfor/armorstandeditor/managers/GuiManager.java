@@ -75,4 +75,14 @@ public class GuiManager
 
         session.getPlayer().openInventory(inventory);
     }
+
+    public static void openRightArmPose(EditorSession session)
+    {
+        Inventory inventory = RightArmPoseGUI.createInventory(session);
+
+        session.setCurrentGui(EditorGuiType.RIGHTARM_POSE);
+        session.setInventory(inventory);
+
+        session.getPlayer().openInventory(inventory);
+    }
 }

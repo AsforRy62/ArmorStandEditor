@@ -48,5 +48,7 @@ public class PoseGUI
         inventory.setItem(BODY, new ItemBuilder(Material.OAK_FENCE).setName("Body Pose").build());
 
         inventory.setItem(LEFT_ARM, new ItemBuilder(Material.STICK).setName("Left Arm Pose").build());
+
+        inventory.setItem(RIGHT_ARM, new ItemBuilder(Material.STICK).setName("Right Arm Pose").build());
     }
 }

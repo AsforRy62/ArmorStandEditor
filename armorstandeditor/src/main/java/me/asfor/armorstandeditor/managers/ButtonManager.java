@@ -5,9 +5,11 @@ import me.asfor.armorstandeditor.buttons.main.*;
 import me.asfor.armorstandeditor.buttons.pose.BodyPoseButton;
 import me.asfor.armorstandeditor.buttons.pose.HeadPoseButton;
 import me.asfor.armorstandeditor.buttons.pose.LeftArmPoseButton;
+import me.asfor.armorstandeditor.buttons.pose.RightArmPoseButton;
 import me.asfor.armorstandeditor.buttons.pose.body.*;
 import me.asfor.armorstandeditor.buttons.pose.head.*;
 import me.asfor.armorstandeditor.buttons.pose.leftarm.*;
+import me.asfor.armorstandeditor.buttons.pose.rightarm.*;
 import me.asfor.armorstandeditor.buttons.rotate.*;
 import me.asfor.armorstandeditor.gui.*;
 import me.asfor.armorstandeditor.sessions.PosePart;
@@ -47,6 +49,7 @@ public class ButtonManager
         poseButtons.put(PoseGUI.HEAD, new HeadPoseButton());
         poseButtons.put(PoseGUI.BODY, new BodyPoseButton());
         poseButtons.put(PoseGUI.LEFT_ARM, new LeftArmPoseButton());
+        poseButtons.put(PoseGUI.RIGHT_ARM, new RightArmPoseButton());
 
         Map<Integer, Button> headButtons = new HashMap<>();
 
@@ -83,6 +86,18 @@ public class ButtonManager
         leftArmButtons.put(LeftArmPoseGUI.Z_MINUS, new LeftArmZMinusButton());
         leftArmButtons.put(LeftArmPoseGUI.RESET, new LeftArmResetButton());
         leftArmButtons.put(LeftArmPoseGUI.BACK,  new LeftArmBackButton());
+
+        Map<Integer, Button> rightArmButtons = new HashMap<>();
+
+        posePartButtons.put(PosePart.RIGHT_ARM, rightArmButtons);
+        rightArmButtons.put(RightArmPoseGUI.X_PLUS, new RightArmXPlusButton());
+        rightArmButtons.put(RightArmPoseGUI.X_MINUS, new RightArmXMinusButton());
+        rightArmButtons.put(RightArmPoseGUI.Y_PLUS, new RightArmYPlusButton());
+        rightArmButtons.put(RightArmPoseGUI.Y_MINUS, new RightArmYMinusButton());
+        rightArmButtons.put(RightArmPoseGUI.Z_PLUS, new RightArmZPlusButton());
+        rightArmButtons.put(RightArmPoseGUI.Z_MINUS, new RightArmZMinusButton());
+        rightArmButtons.put(RightArmPoseGUI.RESET, new RightArmResetButton());
+        rightArmButtons.put(RightArmPoseGUI.BACK,  new RightArmBackButton());
     }
 
     public Button getMainButton(int slot)

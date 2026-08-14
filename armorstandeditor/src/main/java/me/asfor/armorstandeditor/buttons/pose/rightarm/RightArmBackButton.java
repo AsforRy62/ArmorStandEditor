@@ -1,16 +1,14 @@
-package me.asfor.armorstandeditor.buttons.pose;
+package me.asfor.armorstandeditor.buttons.pose.rightarm;
 
 import me.asfor.armorstandeditor.buttons.Button;
 import me.asfor.armorstandeditor.managers.GuiManager;
 import me.asfor.armorstandeditor.sessions.EditorSession;
-import me.asfor.armorstandeditor.sessions.PosePart;
 
-public class RightArmPoseButton implements Button
+public class RightArmBackButton implements Button
 {
     @Override
     public void execute(EditorSession session)
     {
-        session.setPosePart(PosePart.RIGHT_ARM);
         GuiManager.openRightArmPose(session);
     }
 }
