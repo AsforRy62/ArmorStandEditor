@@ -9,12 +9,13 @@ A Minecraft Paper plugin that provides a GUI for editing Armor Stands.
 - Toggle arms
 - Toggle base plate
 - Toggle marker
-- Edit Armor Stand pose (under development)
+- Edit Armor Stand pose
 - Rotate Armor Stand
 - Rename
 - Toggle gravity
 - Toggle visible
 - GUI-based editing
+- Preview (under development)
 
 ## Requirements
 
