@@ -15,6 +15,7 @@ A Minecraft Paper plugin that provides a GUI for editing Armor Stands.
 - Toggle gravity
 - Toggle visible
 - GUI-based editing
+- Preview (under development)
 
 ## Requirements
 
