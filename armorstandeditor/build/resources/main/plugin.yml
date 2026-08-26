@@ -1,0 +1,6 @@
+name: ArmorStandEditor
+version: '1.0'
+main: me.asfor.armorstandeditor.ArmorStandEditor
+api-version: '1.21'
+authors:
+  - Asfor
