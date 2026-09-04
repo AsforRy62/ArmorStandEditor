@@ -2,6 +2,7 @@ package me.asfor.armorstandeditor.listeners;
 
 import me.asfor.armorstandeditor.ArmorStandEditor;
 import me.asfor.armorstandeditor.handlers.*;
+import me.asfor.armorstandeditor.managers.GuiManager;
 import me.asfor.armorstandeditor.sessions.EditorSession;
 
 import org.bukkit.entity.Player;
@@ -140,10 +141,39 @@ public class InventoryListener implements Listener
             return;
         }
 
+        String title = event.getView().getTitle();
+
+        if (session.isClosing())
+        {
+            return;
+        }
+
+        if (title.equals("Rename ArmorStand"))
+        {
+            return;
+        }
+
+        if (session.isOpeningRename())
+        {
+            return;
+        }
+
+        //GUI 正在切換 不是真正離開編輯器
         if (session.isSwitchingGui())
         {
             session.setSwitchingGui(false);
+
             return;
         }
+
+        GuiManager.close(session);
+
+        /*
+        // 真正關閉編輯器
+        plugin.getPreviewManager().hide(player);
+
+        plugin.getSessionManager().removeSession(player.getUniqueId());
+
+         */
     }
 }

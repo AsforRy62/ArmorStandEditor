@@ -1,14 +1,19 @@
 package me.asfor.armorstandeditor.managers;
 
+import me.asfor.armorstandeditor.ArmorStandEditor;
 import me.asfor.armorstandeditor.sessions.EditorSession;
 import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
+
 public class RenameGuiManager
 {
     public static void open(EditorSession session)
     {
+        session.setOpeningRename(true);
+
         new AnvilGUI.Builder()
                 .title("Rename ArmorStand")
                 .text(session.getArmorStand().getCustomName() == null ? "ArmorStand" : session.getArmorStand().getCustomName())
@@ -17,7 +22,7 @@ public class RenameGuiManager
                 {
                     if (slot != AnvilGUI.Slot.OUTPUT)
                     {
-                        return java.util.List.of();
+                        return List.of();
                     }
 
                     String name = state.getText();
@@ -33,17 +38,28 @@ public class RenameGuiManager
                         session.getArmorStand().setCustomNameVisible(true);
                     }
 
-                    return java.util.List.of
+                    return List.of
                             (
                                     AnvilGUI.ResponseAction.close()
-                                    //AnvilGUI.ResponseAction.run(() -> me.asfor.armorstandeditor.managers.GuiManager.openMain(session))
                             );
                 })
                 .onClose(state ->
                 {
-                    GuiManager.openMain(session);
+                    if (! session.isOpeningRename())
+                    {
+                        return;
+                    }
+
+                    session.setOpeningRename(false);
+
+                    ArmorStandEditor plugin = ArmorStandEditor.getPlugin(ArmorStandEditor.class);
+
+                    plugin.getServer().getScheduler().runTask(plugin, () ->
+                    {
+                        GuiManager.openMain(session, false);
+                    });
                 })
-                .plugin(me.asfor.armorstandeditor.ArmorStandEditor.getPlugin(me.asfor.armorstandeditor.ArmorStandEditor.class))
+                .plugin(ArmorStandEditor.getPlugin(ArmorStandEditor.class))
                 .open(session.getPlayer());
     }
 }

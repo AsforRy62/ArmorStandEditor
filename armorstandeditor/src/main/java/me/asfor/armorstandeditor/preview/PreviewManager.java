@@ -1,6 +1,7 @@
 package me.asfor.armorstandeditor.preview;
 
-import me.asfor.armorstandeditor.sessions.EditorSession;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,33 +9,34 @@ import java.util.UUID;
 
 public class PreviewManager
 {
-    private final Map<UUID, PreviewSession> previews = new HashMap<>();
+    private final Map<UUID, PreviewEntity> previews = new HashMap<>();
 
-    public void createPreview(EditorSession session)
+    public void show(Player player, ArmorStand armorStand)
     {
-        UUID uuid = session.getPlayer().getUniqueId();
-
-        PreviewSession previewSession = new PreviewSession(uuid);
-
-        previews.put(uuid, previewSession);
-    }
-
-    public void updatePreview(EditorSession session)
-    {
-        UUID uuid = session.getPlayer().getUniqueId();
-
-        PreviewSession preview =  new PreviewSession(uuid);
-
-        if (preview == null)
+        if (previews.containsKey(player.getUniqueId()))
         {
             return;
         }
+
+        PreviewEntity preview = new PreviewEntity(generateEntityId(), UUID.randomUUID(), player.getLocation());
+
+        previews.put(player.getUniqueId(), preview);
+
+        preview.spawn(player);
     }
 
-    public void removePreview(EditorSession session)
+    public void hide(Player player)
     {
-        UUID uuid = session.getPlayer().getUniqueId();
+        PreviewEntity preview = previews.remove(player.getUniqueId());
 
-        previews.remove(uuid);
+        if (preview != null)
+        {
+            preview.destroy(player);
+        }
+    }
+
+    private int generateEntityId()
+    {
+        return (int) (Math.random() * Integer.MAX_VALUE);
     }
 }

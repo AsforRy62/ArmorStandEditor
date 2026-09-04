@@ -15,12 +15,15 @@ public class EditorSession
     private EditorGuiType currentGui;
 
     private int autoRotateTaskId = -1;
-    //private float rotationStep = 15.0F;
 
     private boolean switchingGui = false;
 
-    //Pose
+    private boolean openingRename = false;
+    private boolean closing = false;
+
     private PosePart posePart;
+
+    private boolean previewVisible;
 
     public EditorSession(Player player, ArmorStand armorStand)
     {
@@ -28,6 +31,8 @@ public class EditorSession
         this.armorStand = armorStand;
 
         this.currentGui = EditorGuiType.MAIN;
+
+        this.previewVisible = false;
     }
 
     public Player getPlayer()
@@ -45,12 +50,12 @@ public class EditorSession
         this.armorStand = armorStand;
     }
 
-    /*
+
     public Inventory getInventory()
     {
         return inventory;
     }
-     */
+
     public void setInventory(Inventory inventory)
     {
         this.inventory = inventory;
@@ -91,7 +96,26 @@ public class EditorSession
         this.switchingGui = switchingGui;
     }
 
-    //Pose
+    public boolean isOpeningRename()
+    {
+        return openingRename;
+    }
+
+    public void setOpeningRename(boolean openingRename)
+    {
+        this.openingRename = openingRename;
+    }
+
+    public boolean isClosing()
+    {
+        return closing;
+    }
+
+    public void setClosing(boolean closing)
+    {
+        this.closing = closing;
+    }
+
     public PosePart getPosePart()
     {
         return posePart;
@@ -100,5 +124,15 @@ public class EditorSession
     public void setPosePart(PosePart posePart)
     {
         this.posePart = posePart;
+    }
+
+    public boolean isPreviewVisible()
+    {
+        return previewVisible;
+    }
+
+    public void setPreviewVisible(boolean previewVisible)
+    {
+        this.previewVisible = previewVisible;
     }
 }

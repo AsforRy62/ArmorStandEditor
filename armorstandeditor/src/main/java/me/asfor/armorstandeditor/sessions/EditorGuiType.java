@@ -2,6 +2,7 @@ package me.asfor.armorstandeditor.sessions;
 
 public enum EditorGuiType
 {
+    NONE,
     MAIN,
     ROTATE,
     POSE,
@@ -10,5 +11,5 @@ public enum EditorGuiType
     LEFTARM_POSE,
     RIGHTARM_POSE,
     LEFTLEG_POSE,
-    RIGHTLEG_POSE,
+    RIGHTLEG_POSE
 }

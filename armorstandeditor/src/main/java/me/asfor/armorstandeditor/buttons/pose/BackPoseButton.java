@@ -9,6 +9,6 @@ public class BackPoseButton implements Button
     @Override
     public void execute(EditorSession session)
     {
-        GuiManager.openMain(session);
+        GuiManager.openMain(session, true);
     }
 }

@@ -47,6 +47,8 @@ public class ArmorStandListener implements Listener
             session.setArmorStand(armorStand);
         }
 
+        plugin.getPreviewManager().show(player, armorStand);
+
         GuiManager.openMain(session);
     }
 }
