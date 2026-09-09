@@ -44,6 +44,7 @@ public class MainGuiHandler
             event.setCancelled(true);
             button.execute(session);
             MainEditorGUI.refreshButtons(event.getView().getTopInventory(), session.getArmorStand());
+            plugin.getPreviewManager().update(session.getPlayer(), session.getArmorStand());
             return;
         }
 

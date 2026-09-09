@@ -1,5 +1,7 @@
 package me.asfor.armorstandeditor.preview;
 
+import net.minecraft.server.level.ServerPlayer;
+import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 
@@ -18,11 +20,25 @@ public class PreviewManager
             return;
         }
 
-        PreviewEntity preview = new PreviewEntity(generateEntityId(), UUID.randomUUID(), player.getLocation());
+        Location previewLocation = player.getLocation().clone().add(player.getLocation().getDirection().normalize().multiply(2.5)).add(2, 0.5, 0);
+
+        PreviewEntity preview = new PreviewEntity(generateEntityId(), UUID.randomUUID(), previewLocation, armorStand);
 
         previews.put(player.getUniqueId(), preview);
 
         preview.spawn(player);
+    }
+
+    public void update(Player player, ArmorStand armorStand)
+    {
+        PreviewEntity preview = previews.get(player.getUniqueId());
+
+        if (preview == null)
+        {
+            return;
+        }
+
+        preview.updateFlags(player, armorStand);
     }
 
     public void hide(Player player)
